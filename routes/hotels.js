@@ -46,13 +46,12 @@ hotelRouter.get("/:id", async (req, res) => {
   }
 });
 //GET ALL
+
 hotelRouter.get("/", async (req, res, next) => {
-  console.log("hi im a hotel route");
-  next();
   try {
-    const hotel = await Hotel.findById(req.params.id);
-    res.status(200).json(hotel);
+    const hotels = await Hotel.find();
+    res.status(200).json(hotels);
   } catch (err) {
-    res.status(500).json(err);
+    next(err);
   }
 });
