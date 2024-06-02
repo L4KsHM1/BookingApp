@@ -8,6 +8,9 @@ import {
 
 export const userRouter = express.Router();
 
+userRouter.get("/checkauthentication", (req, res, next) => {
+  res.send("hello user");
+});
 //UPDATE
 userRouter.put("/:id", updateUser);
 //DELETE
